@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserSecurityService } from '../services/user.security.service';
 import { DictionaryService } from '../services/dictionary.service';
 
@@ -22,7 +22,14 @@ export class PayuComponent implements OnInit {
       productInfo: this.payuform.productinfo,
       amount: this.payuform.amount
     }
-    return this.http.post<any>('http://localhost:8080/payment/paymentdetails', paymentPayload).subscribe(
+
+  let headers= new Headers({'Content-Type':'application/json'});
+  let httpHeaders = new HttpHeaders({
+    'Content-Type' : 'application/json',
+    'Cache-Control' : 'no-cache'
+  })
+  let options = {headers: httpHeaders}
+    return this.http.post<any>('http://localhost:8080/payment/paymentdetails', paymentPayload,options).subscribe(
       data => {
       console.log(data);
       this.payuform.txnid = data.txnId;

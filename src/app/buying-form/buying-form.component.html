@@ -1,3 +1,8 @@
+
+<div *ngIf="message!=null"></div>
+
+  {{ message | async | json }}
+
 <div class="container">
 <ng-container *ngFor="let seat of this.flightSearchService.chosenSeats; index as i">
   <br>
@@ -74,11 +79,11 @@
         seat.whichRow, seat.place, userService.getUser(), flightSearchService.flight, flightSearchService.insurance[i], flightSearchService.phonenumbers[i],
         flightSearchService.pesels[i]))" (click)="flightSearchService.clicked[i]=true"
         [disabled]="nameFormControl.invalid || surnameFormControl.invalid
-        || flightSearchService.clicked[i] || !flightSearchService.clickedRadio[i]" (click)="flightSearchService.isAllClicked()">{{dictionary.confirm}}</button>
+        || flightSearchService.clicked[i] || !flightSearchService.clickedRadio[i]" (click)="flightSearchService.isAllClicked()" (click)="firebasepost()">{{dictionary.confirm}}</button>
     </ng-template>
   </ng-container>
   <br>
   <br>
   <button mat-raised-button color="primary" (click)="this.flightSearchService.countPaymentSummary()" [disabled]="!flightSearchService.allClicked"
-  [routerLink]="['/payment']">{{dictionary.goToSummary}}</button>
+   [routerLink]="['/payment']">{{dictionary.goToSummary}}</button>
 </div>

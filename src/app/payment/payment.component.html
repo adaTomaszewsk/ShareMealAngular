@@ -11,9 +11,50 @@
     </ng-container>
     <mat-list-item>{{dictionary.sum}}: {{this.flightSearchService.paymentSum}}</mat-list-item>
     <mat-divider></mat-divider>
-    <mat-list-item><button mat-raised-button color="primary" style="text-align: center"
-       (click)="flightSearchService.addTickets()" (click)="this.flightSearchService.makePlacesReserved()" (click)="this.flightSearchService.clearArrays()"
-      [routerLink]="['./paymentdetails']">{{dictionary.pay}}</button></mat-list-item>
+    <!-- <mat-list-item><button mat-raised-button color="primary" style="text-align: center"
+     >{{dictionary.pay}}</button></mat-list-item> -->
   </mat-list>
+  <div class="col-md-4">
+    <h2>PayU Payment Form</h2>
+    <form ngNoForm action="https://test.payu.in/_payment" name="payuform" method="POST" target="payment_popup"  onsubmit="window.open('about:blank','payment_popup','width=900,height=500');">
+      <div class="form-group">
+        <label for="productInfo">Product Name:</label>
+        <input type="text" class="form-control" id="productInfo" name="productinfo" [(ngModel)]="payuModel.productinfo" readonly="readonly">
+      </div>
+      <div class="form-group">
+        <label for="firstname">Name:</label>
+        <input type="text" class="form-control" id="firstname" name="firstname" [(ngModel)]="payuModel.firstname" readonly="readonly">
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email" [(ngModel)]="payuModel.email" readonly="readonly">
+      </div>
+      <div class="form-group">
+        <label for="email">Phone:</label>
+        <input type="number" class="form-control" id="phone" name="phone" [(ngModel)]="payuModel.phone" readonly="readonly">
+      </div>
+      <div class="form-group">
+        <label for="amount">Amount:</label>
+        <input type="number" class="form-control" id="amount" name="amount" [(ngModel)]="payuModel.amount" readonly="readonly">
+      </div>
+      <!-- <textarea name="productInfo" id="productInfo" ng-model="productInfo" rows="2" cols="2" hidden [(ngModel)]="payuform.productInfo"></textarea>
+      <textarea name="firstname" id="firstname" ng-model="firstname" rows="2" cols="2" hidden [(ngModel)]="payuform.firstname"></textarea>
+      <textarea name="email" id="email" ng-model="email" rows="2" cols="2" hidden [(ngModel)]="payuform.email"></textarea>
+      <textarea name="phone" id="phone" ng-model="phone" rows="2" cols="2" hidden [(ngModel)]="payuform.phone"></textarea>
+      <textarea name="amount" id="amount" ng-model="amount" rows="2" cols="2" hidden [(ngModel)]="payuform.amount"></textarea> -->
+      <textarea name="surl" id="surl" ng-model="surl" rows="2" cols="2" hidden [(ngModel)]="payuModel.surl"></textarea>
+      <textarea name="furl" id="furl" ng-model="furl" rows="2" cols="2" hidden [(ngModel)]="payuModel.furl"></textarea>
+      <textarea name="key" id="key" ng-model="key" rows="2" cols="2" hidden [(ngModel)]="payuModel.key"></textarea>
+      <textarea name="hash" id="hash" ng-model="hash" rows="2" cols="2" hidden [(ngModel)]="payuModel.hash"></textarea>
+      <textarea name="txnid" id="txnid" ng-model="txnid" rows="2" cols="2" hidden [(ngModel)]="payuModel.txnid"></textarea>
+      <textarea name="service_provider" id="service_provider" rows="2" cols="2" hidden></textarea>
+      <button *ngIf="disablePaymentButton" type="button"  class="btn btn-warning" (click)="confirmPayment()">Confirm</button>
+      <button *ngIf="!disablePaymentButton" type="submit" class="btn btn-success" >Submit</button>
+      &nbsp;
+      <button *ngIf="!disablePaymentButton" type="next" class="btn btn-success" [routerLink]="['/search']"> Next </button>
+    </form>
+  </div>
+  
 </mat-card>
+
 

@@ -48,7 +48,13 @@ import { AddFlightComponent } from './add-flight/add-flight.component';
 import { FlightRemovedComponent } from './flight-removed/flight-removed.component';
 import { FlightAddedComponent } from './flight-added/flight-added.component';
 import { PayuComponent } from './payu/payu.component';
-
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire';
+import { MessagingService } from './services/messaging.service';
+import { environment } from '../environments/environment';
+import { AsyncPipe } from '../../node_modules/@angular/common';
 
 @NgModule({
   declarations: [
@@ -101,11 +107,16 @@ import { PayuComponent } from './payu/payu.component';
     MatIconModule,
     MatCardModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    AngularFireMessagingModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [
-    HttpService, MatDatepickerModule, MatNativeDateModule, FlightSearchService, DatePipe, httpInterceptorProviders,
+    HttpService, MatDatepickerModule, MatNativeDateModule, FlightSearchService, DatePipe, httpInterceptorProviders,MessagingService, AsyncPipe,
      UserSecurityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
