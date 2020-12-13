@@ -39,7 +39,6 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import { LoginSecurityComponent } from './login-security/login.security.component';
 import { RegisterSecurityComponent } from './register-security/register.security.component';
-import { httpInterceptorProviders } from './auth/auth-interceptor';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import { TicketComponent } from './ticket/ticket.component';
@@ -55,6 +54,16 @@ import { AngularFireModule } from '@angular/fire';
 import { MessagingService } from './services/messaging.service';
 import { environment } from '../environments/environment';
 import { AsyncPipe } from '../../node_modules/@angular/common';
+import { AlertsComponent} from './alerts/alerts.component';
+import {BasketComponent} from './basket/basket.component';
+import {CustomerComponent} from './customer/customer.component';
+import {CustomerOrdersComponent} from './customer-orders/customer-orders.component';
+import {LoginComponent} from './login';
+import {MenuComponent} from './menu/menu.component';
+import {RegisterComponent} from './register/register.component';
+import {NewMealComponent} from './new-meal/new-meal.component';
+import {HistoryComponent} from './history/history.component';
+import {ResetPasswordComponent} from './reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +90,17 @@ import { AsyncPipe } from '../../node_modules/@angular/common';
     AddFlightComponent,
     FlightRemovedComponent,
     FlightAddedComponent,
-    PayuComponent
+    PayuComponent,
+    HistoryComponent,
+    AlertsComponent,
+    BasketComponent,
+    CustomerComponent,
+    CustomerOrdersComponent,
+    LoginComponent,
+    MenuComponent,
+    RegisterComponent,
+    NewMealComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -114,7 +133,7 @@ import { AsyncPipe } from '../../node_modules/@angular/common';
     AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [
-    HttpService, MatDatepickerModule, MatNativeDateModule, FlightSearchService, DatePipe, httpInterceptorProviders,MessagingService, AsyncPipe,
+    HttpService, MatDatepickerModule, MatNativeDateModule, FlightSearchService, DatePipe, AsyncPipe,
      UserSecurityService],
   bootstrap: [AppComponent]
 })

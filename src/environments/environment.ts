@@ -4,15 +4,15 @@
 
 export const environment = {
   production: false,
- firebase: {
-    apiKey: "AIzaSyAiWB4nZKAlQDiRbuR84MCbFprcWkrHg74",
-    authDomain: "planes-f1e85.firebaseapp.com",
-    databaseURL: "https://planes-f1e85.firebaseio.com",
-    projectId: "planes-f1e85",
-    storageBucket: "planes-f1e85.appspot.com",
-    messagingSenderId: "798439596458",
-    appId: "1:798439596458:web:a8826b0ee199c1bb128bd3",
-    measurementId: "G-53KDJW8GD8"
+  firebase: {
+    apiKey: "AIzaSyDXxpxn5Lk8IZiyQDtQDbh9QPxnaDml4jE",
+    authDomain: "sharemeal-f6381.firebaseapp.com",
+    databaseURL: "https://sharemeal-f6381.firebaseio.com",
+    projectId: "sharemeal-f6381",
+    storageBucket: "sharemeal-f6381.appspot.com",
+    messagingSenderId: "135229201487",
+    appId: "1:135229201487:web:2b727afd03660027891e3a",
+    measurementId: "G-5PZ026Z6RH"
   }
 };
 
